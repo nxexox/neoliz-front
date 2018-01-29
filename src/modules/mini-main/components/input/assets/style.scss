@@ -1,0 +1,96 @@
+@import '../../../../helpers/assets/style.scss';
+
+.BlockMiniSearch{
+    input[type="text"], button[type="button"] {
+        width: 100%;
+        font-family: Arial,sans-serif;
+        font: 19px/40px arial,sans-serif;
+    }
+
+    input {
+        height: 40px;
+        outline: none;
+        padding-left: 15px;
+        border-right: 0px;
+    }
+
+    button{
+        height: 46px;
+        font-family: Arial,sans-serif;
+        font: 19px/40px arial,sans-serif;
+        outline: none;
+    }
+
+    &__clear-icon{
+        background-image: url('https://yastatic.net/islands/_/eS-nxtWWJ1LfBWLfd096swuFjH4.svg');   
+        background-repeat: no-repeat; /*Убираем повтор изображения*/
+        background-position: center center;
+        height: 40px;
+        background-size: 17px 17px;
+        opacity: .17;
+        display: none;
+        cursor: default;
+    }
+
+    &__clear-icon:hover{
+        opacity: .9;
+    }
+
+    &__clear-icon--open{
+        @extend .BlockMiniSearch__clear-icon;
+        display: block;
+        -webkit-transition: opacity .1s ease-out;
+        transition: opacity .1s ease-out;
+        cursor: pointer;
+    }
+
+    &__clear-icon--close{
+        @extend .BlockMiniSearch__clear-icon;
+        display: none;
+        -webkit-transition: opacity .1s ease-out;
+        transition: opacity .1s ease-out;
+        cursor: default;
+    }
+
+    &__triangle-right {
+        border-top: 23px solid transparent;
+        border-bottom: 23px solid transparent;
+        border-left: 14px solid $color-yellow;
+    }
+
+    &__search-container{
+        min-width: 600px;
+    }
+
+    &__input-container{
+        height: 46px;
+    }
+
+    &__suggestion-container{
+        margin-top: 10px;
+        margin-left: -15px;
+        margin-right: -10px;
+    }
+
+    &__suggestion-item{
+        height: 100%;
+        padding-left: 15px;
+        font-family: Arial,sans-serif;
+        font: 19px/40px arial,sans-serif;
+        border-radius: 3px;
+        cursor: pointer;
+
+        &:hover{
+            background-color: $color-suggest;
+        }
+    }
+
+    li.react-autosuggest__suggestion {
+        list-style-type: none; /* Убираем маркеры */
+    }
+    ul.react-autosuggest__suggestions-list {
+        margin-left: 0; /* Отступ слева в браузере IE и Opera */
+        padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+    }
+    
+}

@@ -1,0 +1,60 @@
+$null-px: 0px;
+$color-yellow: #ffdb4d;
+$color-suggest: #FFE9A1;
+
+.text-black{
+	color: #000;
+}
+
+.yellow {
+    background: $color-yellow;
+}
+
+.border-yellow {
+	border-style: solid;
+    border-color: $color-yellow;
+    border-width: 3px;
+}
+
+.no-border{
+    border: none;
+}
+
+.font-weight{
+    font-weight: normal;
+
+    &--bold{
+        font-weight: bold;
+    }
+}
+
+.no-margin{
+    margin: $null-px;
+}
+
+.no-margin-left{
+    margin-left: 0px !important;
+}
+
+.no-padding{
+    padding: $null-px;
+}
+
+.no-padding-horizontal{
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+.no-padding-rigth{
+    padding-right: 0 !important;
+}
+
+.position-absolute{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+}
+
+.position-relative{
+    position: relative;
+}

@@ -1,0 +1,33 @@
+.miniMain {
+    &__center{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 94%;
+        height: 50px;
+    }
+
+    &__footer{
+        bottom: 0px;
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+
+    &__footer-logo{
+        position: relative;
+        display: block;
+        height: 27px;
+        width: 60px;
+        margin: 0 auto 13px;
+        background: #fff url(https://yastatic.net/www/_/W/s/9fkhsVhseQ-JJcxiLZwCHjhHY.svg) no-repeat 0 0;
+        overflow: hidden;
+    }
+
+    &__footer-logo:hover{
+        background: #fff url(https://yastatic.net/www/_/W/s/9fkhsVhseQ-JJcxiLZwCHjhHY.svg) no-repeat 0 -30px;
+    }
+}
