@@ -1,32 +1,31 @@
-@import '../../../../helpers/assets/style.scss';
+@import '../../Helpers/assets/style.scss';
 
-.BlockMiniSearch{
+.BlockMainSearch{
     input[type="text"], button[type="button"] {
         width: 100%;
         font-family: Arial,sans-serif;
-        font: 19px/40px arial,sans-serif;
+        font: 16px/32px arial,sans-serif;
     }
-
+    
     input {
-        height: 40px;
+        height: 32px;
         outline: none;
-        padding-left: 15px;
+        padding-left: 10px;
         border-right: 0px;
     }
 
     button{
-        height: 46px;
+        height: 36px;
         font-family: Arial,sans-serif;
-        font: 19px/40px arial,sans-serif;
+        font: 16px/32px arial,sans-serif;
         outline: none;
     }
 
     &__clear-icon{
-        background-image: url('https://yastatic.net/islands/_/eS-nxtWWJ1LfBWLfd096swuFjH4.svg');   
+        background-image: url('https://yastatic.net/web4/_/UJ8aDU571EM25yzOzuK55M_i9b8.svg');   
         background-repeat: no-repeat; /*Убираем повтор изображения*/
-        background-position: center center;
-        height: 40px;
-        background-size: 17px 17px;
+        background-position: -95px 0;
+        height: 32px;
         opacity: .17;
         display: none;
         cursor: default;
@@ -37,15 +36,15 @@
     }
 
     &__clear-icon--open{
-        @extend .BlockMiniSearch__clear-icon;
+        @extend .BlockMainSearch__clear-icon;
         display: block;
-        -webkit-transition: opacity .1s ease-out;
-        transition: opacity .1s ease-out;
+        -webkit-transition: opacity .2s ease-out;
+        transition: opacity .2s ease-out;
         cursor: pointer;
     }
 
     &__clear-icon--close{
-        @extend .BlockMiniSearch__clear-icon;
+        @extend .BlockMainSearch__clear-icon;
         display: none;
         -webkit-transition: opacity .1s ease-out;
         transition: opacity .1s ease-out;
@@ -53,17 +52,17 @@
     }
 
     &__triangle-right {
-        border-top: 23px solid transparent;
-        border-bottom: 23px solid transparent;
-        border-left: 14px solid $color-yellow;
+        border-top: 18px solid transparent;
+        border-bottom: 18px solid transparent;
+        border-left: 11px solid $color-yellow;
     }
 
     &__search-container{
-        min-width: 600px;
+        min-width: 460px;
     }
 
     &__input-container{
-        height: 46px;
+        height: 36px;
     }
 
     &__suggestion-container{
@@ -93,4 +92,10 @@
         padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
     }
     
+    .border-yellow{
+        border-style: solid;
+        border-color: $color-yellow;
+        border-width: 2px;
+    }
+
 }

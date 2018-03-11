@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import ReactDOM from 'react-dom';
 import Autosuggest from 'react-autosuggest';
 import './assets/style.css';
 
@@ -47,45 +46,13 @@ const getSuggestions = value => {
   return resArray;
 };
 
-/// Возвращает значение по выбранному элементу.
-const getSuggestionValue = suggestion => suggestion.text;
-
-/// Функция, которая рендерит каждый элемент саджеста.
-const renderSuggestion = (suggestion) => (
-    <div className="BlockMiniSearch__suggestion-item" >
-      {suggestion.highlitedText}
-    </div>
-);
-
-/// Возвращает отрендеренный список элементов саджеста. Включая контейнер.
-const renderSuggestionsContainer = ({ containerProps, children, query }) => {
-  return (
-      children ?
-        <div {...containerProps} className="BlockMiniSearch__suggestion-container">
-          {children}
-        </div>
-      : null
-  );
-};
-
-/// Возвращает отрендеренный компонент инпута.
-const renderInputComponent = inputProps => (
-    <div className="border-yellow BlockMiniSearch__input-container row">
-      <div className="col-lg-11 col-sm-11 col-xs-11 no-padding-horizontal">
-        <input { ...inputProps } />
-      </div>
-      <div className="col-lg-1 col-sm-1 col-xs-1 no-padding-horizontal">
-        <span className={inputProps.value ? "BlockMiniSearch__clear-icon--open" : "BlockMiniSearch__clear-icon--close"}>
-        </span>
-      </div>
-    </div>
-);
-
 export default class InputSearch extends Component {
   constructor(props){
     super(props);
 
     this.onSuggestionSelected = this.onSuggestionSelected.bind(this);
+    this.renderInputComponent = this.renderInputComponent.bind(this);
+    this.cleanInput = this.cleanInput.bind(this);
 
     this.state = {
       value: '',
@@ -100,7 +67,7 @@ export default class InputSearch extends Component {
 
   /// Событие, выбора элемента в саджесте.
   onSuggestionSelected = (event, { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }) => {
-    console.log('Вы начали поиск с запросом: ', suggestionValue);
+    console.log('2 Вы начали поиск с запросом: ', suggestionValue);
   };
   
   /// Функция, по обновлению данных для саджеста.
@@ -111,11 +78,53 @@ export default class InputSearch extends Component {
     });
   };
 
+  /// Возвращает отрендеренный компонент инпута.
+  renderInputComponent = inputProps => (
+    <div className="no-margin-left border-yellow BlockMainSearch__input-container row">
+      <div className="col-lg-11 col-sm-11 col-xs-11 no-padding-horizontal">
+        <input { ...inputProps } ref={(input) => { this.searchInput = input; }} />
+      </div>
+      <div className="col-lg-1 col-sm-1 col-xs-1 no-padding-horizontal">
+        <span className={inputProps.value ? "BlockMainSearch__clear-icon--open" : "BlockMainSearch__clear-icon--close"}
+              onClick={this.cleanInput}>
+        </span>
+      </div>
+    </div>
+);
+
+  /// Очищает инпут.
+  cleanInput = (event) => {
+    this.setState({value: ""});
+    /// Ставим фокус, когда очистили.
+    this.searchInput.focus();
+  }
+
   /// Чистит саджест от элементов..
   onSuggestionsClearRequested = () => {
     this.setState({
       suggestions: []
     });
+  };
+
+  /// Возвращает значение по выбранному элементу.
+  getSuggestionValue = suggestion => suggestion.text;
+
+  /// Функция, которая рендерит каждый элемент саджеста.
+  renderSuggestion = (suggestion) => (
+      <div className="BlockMainSearch__suggestion-item" >
+        {suggestion.highlitedText}
+      </div>
+  );
+
+  /// Возвращает отрендеренный список элементов саджеста. Включая контейнер.
+  renderSuggestionsContainer = ({ containerProps, children, query }) => {
+    return (
+        children ?
+          <div {...containerProps} className="BlockMainSearch__suggestion-container">
+            {children}
+          </div>
+        : null
+    );
   };
 
   render() {
@@ -129,9 +138,8 @@ export default class InputSearch extends Component {
     };
 
     return (
-      <div className="BlockMiniSearch row">
-        <div className="col-lg-3 col-sm-2 col-xs-1"></div>
-        <div className="col-lg-6 col-sm-8 col-xs-10 BlockMiniSearch__search-container">
+      <div className="BlockMainSearch row">
+        <div className="col-lg-6 col-sm-8 col-xs-10 BlockMainSearch__search-container">
           <div className="row">
             <div className="col-xs-10 no-padding-horizontal">
               <Autosuggest
@@ -139,11 +147,11 @@ export default class InputSearch extends Component {
                 onSuggestionSelected={this.onSuggestionSelected}
                 onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
                 onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-                getSuggestionValue={getSuggestionValue}
-                renderInputComponent={renderInputComponent}
+                getSuggestionValue={this.getSuggestionValue}
+                renderInputComponent={this.renderInputComponent}
                 inputProps={inputProps}
-                renderSuggestionsContainer={renderSuggestionsContainer}
-                renderSuggestion={renderSuggestion}
+                renderSuggestionsContainer={this.renderSuggestionsContainer}
+                renderSuggestion={this.renderSuggestion}
                 highlightFirstSuggestion={true}
               />
             </div>
@@ -153,7 +161,7 @@ export default class InputSearch extends Component {
                   <button type="button" className="border-yellow search yellow text-black">Найти</button>
                 </div>
                 <div className="col-xs-2 no-padding-horizontal">
-                  <div className="BlockMiniSearch__triangle-right"></div>
+                  <div className="BlockMainSearch__triangle-right"></div>
                 </div>
               </div>
             </div>

@@ -1,6 +1,8 @@
 $null-px: 0px;
 $color-yellow: #ffdb4d;
 $color-suggest: #FFE9A1;
+$color-red-hover: #c00;
+$color-grey-text: #999;
 
 .text-black{
 	color: #000;
@@ -47,6 +49,10 @@ $color-suggest: #FFE9A1;
 
 .no-padding-rigth{
     padding-right: 0 !important;
+}
+
+.no-padding-left{
+    padding-left: 0px !important;
 }
 
 .position-absolute{

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import ReactDOM from 'react-dom';
-import InputSearch from './components/input'; 
+import InputSearch from '../../modules/SearchInputMini';
 import './assets/style.css';
 
 

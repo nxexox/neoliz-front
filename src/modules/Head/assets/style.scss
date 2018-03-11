@@ -1,0 +1,74 @@
+@import '../../Helpers/assets/style.scss';
+
+
+.head{
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    box-shadow: 0 1px rgba(0,0,0,.1);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    background-color: #fff;
+
+    &__search-form{
+        padding: 2px 0px;
+        height: 42px;
+    }
+
+    &__container{
+        min-width: 600px;
+        padding: 14px 20px 0px 14px;        
+    }
+
+    &__logo{
+        background-image: url("https://yastatic.net/web4/_/yBhWHJwOD8v4J7TMkj4510Aii0U.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        width: 98px;
+        height: 35px;    
+    }
+
+    &__logo--container{
+        width: 110px;
+        float: left;
+    }
+
+    &__menu-container {
+        margin-left: 110px;
+    }
+
+    &__menu {
+        padding: 4px 0px 0px;
+    }
+
+    &__menu-item {
+        display: inline;
+        margin-right: 5px;
+        padding: 3px 3px 10px;
+        text-transform: lowercase;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: $color-grey-text;
+        cursor: pointer;
+        font-size: inherit;
+        -webkit-transition: color .1s ease-out 0s;
+        -o-transition: color .1s ease-out 0s;
+        transition: color .1s ease-out 0s;
+        font-family: Arial,Helvetica,sans-serif;
+        overflow: hidden;
+        transition: color .1s ease-out 0s;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        line-height: inherit;
+    }
+
+    &__menu-item:hover {
+        transition: color .1s ease-out 0s;
+        color: $color-red-hover;
+    }
+
+    &__menu-item--active {
+        border-bottom: 3px solid #000;
+        color: #000;
+    }
+}
